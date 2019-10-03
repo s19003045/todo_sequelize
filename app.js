@@ -5,9 +5,9 @@ const port = 3000
 
 // ===============route setting=============
 
-app.get('/', (req, res) => {
-  res.send('index page')
-})
+app.use('/', require('./routes/home'))
+
+app.use('/todos', require('./routes/todo'))
 
 // Server start
 app.listen(port, () => {
