@@ -19,6 +19,8 @@ app.use('/', require('./routes/home'))
 
 app.use('/todos', require('./routes/todo'))
 
+app.use('/user', require('./routes/user'))
+
 // Server start
 app.listen(port, () => {
   console.log(`Express server start`)
