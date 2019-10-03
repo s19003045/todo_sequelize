@@ -14,13 +14,13 @@ router.post('/', (req, res) => {
 
 // GET new record page
 router.get('/new', (req, res) => {
-  res.send('new page')
+  res.render('new')
 })
 
 
 // GET edit record page
 router.get('/edit', (req, res) => {
-  res.send('edit page')
+  res.render('edit')
 })
 
 // POST edit record page
