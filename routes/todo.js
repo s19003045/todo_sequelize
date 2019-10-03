@@ -6,15 +6,17 @@ router.get('/', (req, res) => {
   res.redirect('/')
 })
 
+
+// POST new record page
+router.post('/', (req, res) => {
+  res.send('post new page')
+})
+
 // GET new record page
 router.get('/new', (req, res) => {
   res.send('new page')
 })
 
-// POST new record page
-router.post('/new', (req, res) => {
-  res.send('post new page')
-})
 
 // GET edit record page
 router.get('/edit', (req, res) => {
@@ -22,10 +24,14 @@ router.get('/edit', (req, res) => {
 })
 
 // POST edit record page
-router.post('/edit', (req, res) => {
+router.put('/edit', (req, res) => {
   res.send('edit page')
 })
 
+// DELETE 
+router.delete('/delete', (req, res) => {
+  res.send('delete page')
+})
 
 
 module.exports = router
