@@ -10,6 +10,9 @@ app.use(methodOverride('_method'))
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
+// Use static file
+app.use(express.static('public'))
+
 // ===============route setting=============
 
 app.use('/', require('./routes/home'))

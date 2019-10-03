@@ -1,1 +1,26 @@
-<h2>index page</h2>
+<a href="/todos/new" class="btn btn-primary mb-3">Create</a>
+
+<ul class="list-group">
+  {{#each todos}}
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-auto mr-auto">
+        <input class="d-inline align-middle" type="checkbox" name="done" id="done" {{#if this.done}}checked{{/if}}
+          disabled>
+        <h4 class="ml-2 d-inline">
+          {{{this.name}}}
+        </h4>
+      </div>
+
+      <form action="/todos/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display:inline;">
+        <div class="col-auto">
+          <a class="btn btn-primary" href="/todos/{{{this.id}}}">view</a>
+          <a class="btn btn-info" href="/todos/{{{this.id}}}/edit">edit</a>
+          <button class="btn btn-danger" type="submit">delete</button>
+        </div>
+      </form>
+    </div>
+  </li>
+  {{/each}}
+</ul>
