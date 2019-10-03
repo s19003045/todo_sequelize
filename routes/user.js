@@ -1,5 +1,10 @@
 const express = require('express')
 const router = express.Router()
+// 載入 model
+const db = require('../models')
+const Todo = db.Todo
+const User = db.User
+
 
 // GET login page
 router.get('/login', (req, res) => {
@@ -18,12 +23,11 @@ router.get('/register', (req, res) => {
 
 // POST register page
 router.post('/register', (req, res) => {
-  res.send('POST register')
-})
-
-// POST register page
-router.get('/logout', (req, res) => {
-  res.send('logout')
+  User.create({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
+  }).then(user => res.redirect('/'))
 })
 
 

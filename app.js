@@ -3,7 +3,13 @@ const app = express()
 const port = 3000
 const methodOverride = require('method-override')
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
 
+
+
+
+// bodyParser setting
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 // Set up template engine 
@@ -19,7 +25,7 @@ app.use('/', require('./routes/home'))
 
 app.use('/todos', require('./routes/todo'))
 
-app.use('/user', require('./routes/user'))
+app.use('/users', require('./routes/user'))
 
 // Server start
 app.listen(port, () => {
