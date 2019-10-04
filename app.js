@@ -9,7 +9,8 @@ const bodyParser = require('body-parser')
 const db = require('./models')
 const User = db.User
 const Todo = db.Todo
-
+const passport = require('passport')
+const session = require('express-session')
 
 // bodyParser setting
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -21,6 +22,30 @@ app.set('view engine', 'handlebars')
 
 // Use static file
 app.use(express.static('public'))
+
+
+// ※注意：app.use(session({})) 必須設定在 app.use(passport.session()) 之前
+app.use(session({
+  secret: ['Abby', 'Doris', 'Oliver'], // secret字串或是多個secret組成的一個陣列
+  resave: false,
+  saveUninitialized: true,
+}))
+
+// use passport
+app.use(passport.initialize())
+
+// use session
+app.use(passport.session())
+
+// 載入 config 中的 passport.js
+// 把上面宣告的 passport 實例當成下面的參數
+require('./config/passport')(passport)
+
+app.use((req, res, next) => {
+  res.locals.user = req.user
+  next()
+})
+
 
 // ===============route setting=============
 
