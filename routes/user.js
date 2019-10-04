@@ -1,34 +1,78 @@
+// routes/user.js
 const express = require('express')
 const router = express.Router()
-// 載入 model
+const passport = require('passport')
+// 載入 user model
 const db = require('../models')
-const Todo = db.Todo
 const User = db.User
 
-
-// GET login page
+// 登入頁面
 router.get('/login', (req, res) => {
   res.render('login')
 })
 
-// POST login page
-router.post('/login', (req, res) => {
-  res.send('POST login')
+// 登入檢查
+router.post('/login', (req, res, next) => {
+  res.send('登入檢查')
 })
 
-// GET register page
+// 註冊頁面
 router.get('/register', (req, res) => {
   res.render('register')
 })
 
-// POST register page
+// 註冊檢查
 router.post('/register', (req, res) => {
-  User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password
-  }).then(user => res.redirect('/'))
+
+  console.log(req.body)
+  const { name, email, password, password2 } = req.body
+
+  User.findOne({ where: { email: email } }).then(user => {
+    if (user) {
+      console.log('User already exists')
+      res.render('register', {
+        name,
+        email,
+        password,
+        password2
+      })
+    } else {
+      const newUser = new User({  //  如果 email 不存在就直接新增
+        name,
+        email,
+        password,
+      })
+      newUser
+        .save()
+        .then(user => {
+          res.redirect('/')                   // 新增完成導回首頁
+        })
+        .catch(err => console.log(err))
+    }
+  })
+
+
+  // console.log('into register route')
+
+  // User.findByPk(1).then(user => {
+  //   console.log(user)
+  //   res.redirect('/')
+  // })
+
+  // User.findOne({ where: { email: 'user1@example.com' } })
+  //   .then(user => {
+  //     console.log(user)
+  //     res.redirect('/')
+  //   })
 })
 
+
+
+
+
+// 登出
+router.get('/logout', (req, res) => {
+  res.send('logout')
+})
 
 module.exports = router

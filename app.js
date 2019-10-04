@@ -5,7 +5,10 @@ const methodOverride = require('method-override')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
-
+// 載入 user model
+const db = require('./models')
+const User = db.User
+const Todo = db.Todo
 
 
 // bodyParser setting
@@ -26,6 +29,7 @@ app.use('/', require('./routes/home'))
 app.use('/todos', require('./routes/todo'))
 
 app.use('/users', require('./routes/user'))
+
 
 // Server start
 app.listen(port, () => {

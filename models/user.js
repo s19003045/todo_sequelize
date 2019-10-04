@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   }, {});
   User.associate = function (models) {
-    // associations can be defined here
-    User.belongsTo(models.Todo)
+    // Todo 與 User 為一對多的關係
+    User.hasMany(models.Todo)
 
   };
   return User;
