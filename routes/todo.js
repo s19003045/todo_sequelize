@@ -15,9 +15,15 @@ router.get('/', authenticated, (req, res) => {
 })
 
 
-// POST new record page
+// 新增一筆 Todo
 router.post('/', authenticated, (req, res) => {
-  res.send('post new page')
+  Todo.create({
+    name: req.body.name,
+    done: false,
+    UserId: req.user.id
+  })
+    .then((todo) => { return res.redirect('/') })
+    .catch((error) => { return res.status(422).json(error) })
 })
 
 // GET new record page
@@ -27,23 +33,80 @@ router.get('/new', authenticated, (req, res) => {
 
 // GET record page
 router.get('/:id', authenticated, (req, res) => {
-  res.render('show')
+  User.findByPk(req.user.id)
+    .then(user => {
+      if (!user) {
+        throw new Error('user not found')
+      }
+      return Todo.findOne({
+        where: {
+          UserId: req.user.id,
+          id: req.params.id
+        }
+      })
+    })
+    .then(todo => {
+      return res.render('detail', { todo })
+    })
+    .catch((error) => { return res.status(422).json(error) })
+
 })
 
 
 // GET edit record page
 router.get('/:id/edit', authenticated, (req, res) => {
-  res.render('edit')
+  User.findByPk(req.user.id)
+    .then(user => {
+      if (!user) {
+        throw new Error('user not found')
+      }
+      return Todo.findOne({
+        where: {
+          UserId: req.user.id,
+          id: req.params.id
+        }
+      })
+    })
+    .then(todo => {
+      return res.render('edit', { todo })
+    })
+    .catch((error) => { return res.status(422).json(error) })
 })
 
-// POST edit record page
+
+// 修改 Todo
 router.put('/:id', authenticated, (req, res) => {
-  res.send('edit page')
+  Todo.findOne({
+    where: {
+      Id: req.params.id,
+      UserId: req.user.id,
+    }
+  })
+    .then((todo) => {
+      todo.name = req.body.name
+      todo.done = req.body.done === "on"
+
+      return todo.save()
+    })
+    .then((todo) => { return res.redirect(`/todos/${req.params.id}`) })
+    .catch((error) => { return res.status(422).json(error) })
 })
 
-// DELETE 
+// 刪除 Todo
 router.delete('/:id/delete', authenticated, (req, res) => {
-  res.send('delete page')
+  User.findByPk(req.user.id)
+    .then((user) => {
+      if (!user) throw new Error("user not found")
+
+      return Todo.destroy({
+        where: {
+          UserId: req.user.id,
+          Id: req.params.id
+        }
+      })
+    })
+    .then((todo) => { return res.redirect('/') })
+    .catch((error) => { return res.status(422).json(error) })
 })
 
 
