@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  {{!-- google font --}}
+  <link href="https://fonts.googleapis.com/css?family=Be+Vietnam|Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,13 +35,19 @@
     </nav>
   </header>
 
-  <main>
-    <div class="container mt-5">
+  <main class="d-flex justify-content-between flex-column">
+    <div class="container mt-5 mb-5 pb-5">
       {{{body}}}
+
     </div>
+    <footer class="mt-5 page-footer font-small  bg-dark text-white navbar-fixed-bottom">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-2">© 2019 Copyright:
+        <a class="text-white text-muted" href="https://github.com/s19003045/"> Github s19003045 </a>
+      </div>
+      <!-- Copyright -->
+    </footer>
   </main>
-
-
 
   <script src="/js/jquery-3.4.1.min.js"></script>
   <script src="/js/popper.min.js"></script>

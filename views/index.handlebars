@@ -2,7 +2,6 @@
 
 <ul class="list-group">
   {{#each todos}}
-
   <li class="list-group-item">
     <div class="row">
       <div class="col-auto mr-auto">
@@ -17,7 +16,9 @@
         <div class="col-auto">
           <a class="btn btn-primary" href="/todos/{{{this.id}}}">view</a>
           <a class="btn btn-info" href="/todos/{{{this.id}}}/edit">edit</a>
-          <button class="btn btn-danger" type="submit">delete</button>
+          <button class="btn btn-danger" type="submit" data-toggle="tooltip" data-placement="top"
+            title="Delete">delete</button>
+
         </div>
       </form>
     </div>

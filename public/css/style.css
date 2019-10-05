@@ -1,62 +1,45 @@
 /* main */
+body {
+  font-family: "Noto Sans TC", "Be Vietnam", sans-serif;
+  min-height: 100vh;
+}
 main {
   padding-top: 56px;
+  background-image: url("https://picsum.photos/id/1043/1200");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  /* scrollbar-width: none; */
+  /* height: 90vh; */
+  min-height: 100vh;
 }
 
-/* index page */
-#search-bar {
-  padding-right: 10px;
-  padding-left: 10px;
+.container {
+  /* overflow-y: scroll;
+  scrollbar-width: none; */
 }
-#search-bar small {
-  /* font-size: 16px; */
-  display: none;
-}
-.total-amount h1 {
-  font-size: 2em;
+/* .container h4,
+.container input {
+  font-size: 1.2em;
 }
 
-/* edit page */
-#editpage-category small {
-  display: none;
-}
-#editpage-category i {
-  font-size: 2.5em;
-}
-
-/* new page */
-#newpage-category small {
-  display: none;
-}
-#newpage-category i {
-  font-size: 2.5em;
-}
+.container a,
+.container button {
+  font-size: 0.8em;
+  line-height: 1.4em;
+} */
 
 @media only screen and (min-width: 768px) {
-  #search-bar {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
-  #search-bar small {
-    display: block;
-  }
-  .total-amount h1 {
-    font-size: 2.5em;
+  /* .container h4,
+  .container input {
+    font-size: 1.4em;
   }
 
-  /* edit page */
-  #editpage-category small {
-    display: block;
-  }
-  #editpage-category i {
-    font-size: 4em;
-  }
-
-  /* new page */
-  #newpage-category small {
-    display: block;
-  }
-  #newpage-category i {
-    font-size: 4em;
-  }
+  .container a,
+  .container button {
+    font-size: 1em;
+    line-height: 1.4em;
+  } */
 }
