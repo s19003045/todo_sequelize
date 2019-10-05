@@ -10,36 +10,18 @@ main {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   /* scrollbar-width: none; */
   /* height: 90vh; */
   min-height: 100vh;
 }
 
-.container {
-  /* overflow-y: scroll;
-  scrollbar-width: none; */
+.container h4 {
+  font-size: 1em;
 }
-/* .container h4,
-.container input {
-  font-size: 1.2em;
-}
-
-.container a,
-.container button {
-  font-size: 0.8em;
-  line-height: 1.4em;
-} */
 
 @media only screen and (min-width: 768px) {
-  /* .container h4,
-  .container input {
-    font-size: 1.4em;
+  .container h4 {
+    font-size: 1.2em;
   }
-
-  .container a,
-  .container button {
-    font-size: 1em;
-    line-height: 1.4em;
-  } */
 }

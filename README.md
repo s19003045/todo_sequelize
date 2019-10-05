@@ -109,9 +109,7 @@ database: MySQL
 ## 畫面
 
 - 畫面總覽
-  ![首頁..瀏灠所有 todo 記錄](https://github.com/s19003045/todo_sequelize/blob/master/imagesForREADME/todo_sequelize.png)
-
-
+  ![首頁..瀏灠所有 todo 記錄](https://github.com/s19003045/todo_sequelize/blob/master/imagesForREADME/todo-sequelize.png)
 
 ## 開發人員
 
