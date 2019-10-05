@@ -5,6 +5,8 @@ const passport = require('passport')
 // 載入 user model
 const db = require('../models')
 const User = db.User
+const bcrypt = require('bcryptjs')
+
 
 // 登入頁面
 router.get('/login', (req, res) => {
@@ -41,33 +43,23 @@ router.post('/register', (req, res) => {
         password2
       })
     } else {
-      const newUser = new User({  //  如果 email 不存在就直接新增
-        name,
-        email,
-        password,
-      })
-      newUser
-        .save()
-        .then(user => {
-          res.redirect('/')                   // 新增完成導回首頁
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) return console.log(err)
+        bcrypt.hash(password, salt, (err, hash) => {
+          const newUser = new User({  //  如果 email 不存在就直接新增
+            name: name,
+            email: email,
+            password: hash
+          })
+          newUser.save()
+            .then(user => {
+              res.redirect('/')
+            })
+            .catch(err => console.log(err))
         })
-        .catch(err => console.log(err))
+      })
     }
   })
-
-
-  // console.log('into register route')
-
-  // User.findByPk(1).then(user => {
-  //   console.log(user)
-  //   res.redirect('/')
-  // })
-
-  // User.findOne({ where: { email: 'user1@example.com' } })
-  //   .then(user => {
-  //     console.log(user)
-  //     res.redirect('/')
-  //   })
 })
 
 
