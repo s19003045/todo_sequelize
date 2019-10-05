@@ -109,19 +109,19 @@ database: MySQL
 ## 畫面
 
 - 瀏灠所有 todo 記錄
-  ![首頁..瀏灠所有 todo 記錄](https://github.com/s19003045/expense-tracker/blob/master/imagesForGithub/index_page.png)
+  ![首頁..瀏灠所有 todo 記錄]()
 
 - 新增 todo 記錄
-  ![新增 todo 記錄](https://github.com/s19003045/expense-tracker/blob/master/imagesForGithub/newPage.png)
+  ![新增 todo 記錄]()
 
 - 編輯 todo 記錄
-  ![編輯 todo 記錄](https://github.com/s19003045/expense-tracker/blob/master/imagesForGithub/editPage.png)
+  ![編輯 todo 記錄]()
 
 - 註冊頁面
-  ![註冊頁面](https://github.com/s19003045/expense-tracker/blob/master/imagesForGithub/register.png)
+  ![註冊頁面]()
 
 - 登入頁面
-  ![登入頁面](https://github.com/s19003045/expense-tracker/blob/master/imagesForGithub/login.png)
+  ![登入頁面]()
 
 ## 開發人員
 
