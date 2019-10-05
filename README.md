@@ -111,22 +111,7 @@ database: MySQL
 - 畫面總覽
   ![首頁..瀏灠所有 todo 記錄](https://github.com/s19003045/todo_sequelize/blob/master/imagesForREADME/todo_sequelize.png)
 
-<--
-- 瀏灠所有 todo 記錄
-  ![首頁..瀏灠所有 todo 記錄]()
 
-- 新增 todo 記錄
-  ![新增 todo 記錄]()
-
-- 編輯 todo 記錄
-  ![編輯 todo 記錄]()
-
-- 註冊頁面
-  ![註冊頁面]()
-
-- 登入頁面
-  ![登入頁面]()
--->
 
 ## 開發人員
 
