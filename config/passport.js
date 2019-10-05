@@ -16,12 +16,14 @@ module.exports = passport => {
       }).then(user => {
         if (!user) {
           console.log('user not exist')
+
           return done(null, false, { message: 'the email is not registered' })
         }
         bcrypt.compare(password, user.password)
           .then(res => {
             if (res !== true) {
               console.log('password not correct')
+
               return done(null, false, { message: 'email or password is not correct' })
             }
             console.log('login success')

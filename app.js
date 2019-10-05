@@ -19,6 +19,8 @@ const User = db.User
 const Todo = db.Todo
 const passport = require('passport')
 const session = require('express-session')
+// import connect-flash
+const flash = require('connect-flash')
 
 // bodyParser setting
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -38,6 +40,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }))
+// 建立 flash 實例並使用它
+app.use(flash())
 
 // use passport
 app.use(passport.initialize())
@@ -52,6 +56,10 @@ require('./config/passport')(passport)
 app.use((req, res, next) => {
   res.locals.user = req.user
   res.locals.isAuthenticated = req.isAuthenticated()
+
+  // 可用在使用者註冊/登入/登出時，儲存 success_msg 及 failure_msg
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.failure_msg = req.flash('failure_msg')
 
   next()
 })

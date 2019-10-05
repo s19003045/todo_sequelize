@@ -18,7 +18,7 @@ router.get('/', authenticated, (req, res) => {
       return Todo.findAll({ where: { userId: req.user.id } })
     })
     .then(todos => {
-      return res.render('index', { todos })
+      return res.render('index', { todos, user: req.user })
     })
     .catch((error) => { return res.status(422).json(error) })
 })
