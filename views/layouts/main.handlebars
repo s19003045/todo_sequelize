@@ -12,20 +12,26 @@
 
   {{!-- google font --}}
   <link href="https://fonts.googleapis.com/css?family=Be+Vietnam|Noto+Sans+TC&display=swap" rel="stylesheet">
+
+  {{!-- pomodoro timer --}}
+  <link rel="stylesheet" href="/css/pomodoro.css">
+  {{!-- font for pomodoro timer --}}
+  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Indie+Flower'>
 </head>
 
-<body onLoad="initClock()">
+
+<body>
   <header>
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="/">Todo List</a>
 
-      <div id="timedate">
+      <div id="timedate" class="d-flex">
         <div class="timedate">
           <a id="mon">January</a>
           <a id="d">1</a>,
           <a id="y">0</a>
         </div>
-        <div class="timedate">
+        <div class="timedate pl-3">
           <a id="h" class="">12</a> :
           <a id="m">00</a>:
           <a id="s">00</a>
@@ -70,8 +76,10 @@
   <script src="/js/popper.min.js"></script>
   <script src="/js/bootstrap.js"></script>
 
-
+  {{!-- for navbar clock --}}
   <script src="/js/clock.js"></script>
+  {{!-- pomodoro timer --}}
+  <script src="/js/pomodoro.js"></script>
 </body>
 
 </html>

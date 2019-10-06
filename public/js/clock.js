@@ -26,4 +26,5 @@ function initClock() {
   window.setInterval("updateClock()", 1);
 }
 
+window.onload = initClock()
 // END CLOCK SCRIPT

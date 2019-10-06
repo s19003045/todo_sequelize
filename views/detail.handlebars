@@ -1,5 +1,5 @@
 <a href="/" class="btn btn-secondary mb-3">Back</a>
-<form action="/todos/{{{todo.id}}}/delete?_method=DELETE" method="POST">
+<form action="/todos/{{{todo.id}}}/delete?_method=DELETE" method="POST" class="col-lg-8 mx-auto">
   <div class="input-group">
     <div class="input-group-prepend">
       <div class="input-group-text">
@@ -15,3 +15,85 @@
     </div>
   </div>
 </form>
+
+{{!-- pomodoro timer --}}
+<div class="pomodoTimer d-flex flex-column justify-content-center mt-3 pb-5 col-12 col-lg-8 mx-auto"
+  style="border-radius: 30px;">
+  <div class="content pb-1">
+    <p>
+      <div><span id="timer"></span></div>
+      <button id="btn_start" class="btn_default">start</button>
+      <button id="btn_pause" class="btn_default">pause</button>
+      <button id="btn_reset" class="btn_default">reset</button>
+    </p>
+    <p>
+      <button id="btn_pomodoro" class="btn_default">pomodoro (25m)</button>
+      <button id="btn_shortbreak" class="btn_default">short break (5m)</button>
+      <button id="btn_longbreak" class="btn_default">long break (15m)</button>
+    </p>
+    <p>
+      <button id="btn_custom" class="btn_default">
+        <label for="ipt_custom">custom:</label>
+      </button>
+      <input type="number" id="ipt_custom" value="45" min="0" max="100000000">
+      <select id="custom_units">
+        <option value="seconds">seconds</option>
+        <option value="minutes" selected>minutes</option>
+        <option value="hours">hours</option>
+      </select>
+    </p>
+  </div>
+
+  <div class="d-flex flex-row mx-auto footerbox">
+    <h1>Options:</h1>
+    <div id="options">
+      <label for="alarm_select" id="lbl_alarm">Alarm:</label><br>
+      <select id="alarm_select">
+        <option value="none">None</option>
+        <option value="alarm_chime">Chime</option>
+        <option value="alarm_bell" selected>Bell</option>
+        <option value="alarm_beeps">Beeps</option>
+        <option value="alarm_boops">Boops</option>
+      </select>
+      <br><br>
+      <label for="alarm_volume" id="lbl_volume">Volume:</label><br>
+      <input type="range" id="alarm_volume" min=0 max=100 value=50>
+    </div>
+    <br>
+  </div>
+</div>
+
+
+{{!-- <footer>
+  <div class="footerbox">
+    <h1>Options:</h1>
+    <div id="options">
+      <label for="alarm_select" id="lbl_alarm">Alarm:</label><br>
+      <select id="alarm_select">
+        <option value="none">None</option>
+        <option value="alarm_chime">Chime</option>
+        <option value="alarm_bell" selected>Bell</option>
+        <option value="alarm_beeps">Beeps</option>
+        <option value="alarm_boops">Boops</option>
+      </select>
+      <br><br>
+      <label for="alarm_volume" id="lbl_volume">Volume:</label><br>
+      <input type="range" id="alarm_volume" min=0 max=100 value=50>
+    </div>
+    <br>
+  </div>
+
+</footer> --}}
+
+</div>
+<audio id="alarm_chime">
+  <source src="/audio/one_chime.mp3" type="audio/mpeg"></audio>
+<audio id="alarm_bell">
+  <source src="/audio/one_bell.mp3" type="audio/mpeg"></audio>
+<audio id="alarm_beeps">
+  <source src="/audio/three_beeps.mp3" type="audio/mpeg"></audio>
+<audio id="alarm_boops">
+  <source src="/audio/three_boops.mp3" type="audio/mpeg"></audio>
+<!-- Audio courtesy of https://soundcloud.com/andyouarewho -->
+<script type="text/javascript" src="../resources/mousetrap.js"></script>
+<script type="text/javascript" src="/js/pomodoro.js"></script>
