@@ -14,10 +14,25 @@
   <link href="https://fonts.googleapis.com/css?family=Be+Vietnam|Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onLoad="initClock()">
   <header>
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="/">Todo List</a>
+
+      <div id="timedate">
+        <div class="timedate">
+          <a id="mon">January</a>
+          <a id="d">1</a>,
+          <a id="y">0</a>
+        </div>
+        <div class="timedate">
+          <a id="h" class="">12</a> :
+          <a id="m">00</a>:
+          <a id="s">00</a>
+          <a id="mi" style="display:none;">000</a>
+        </div>
+      </div>
+
       <ul class="nav justify-content-end">
         {{#if isAuthenticated}}
         <li class="nav-item">
@@ -49,9 +64,14 @@
     </footer>
   </main>
 
+
+
   <script src="/js/jquery-3.4.1.min.js"></script>
   <script src="/js/popper.min.js"></script>
   <script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/clock.js"></script>
 </body>
 
 </html>

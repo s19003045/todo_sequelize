@@ -20,8 +20,33 @@ main {
   font-size: 1em;
 }
 
+/* for clock */
+#timedate {
+  font: small-caps lighter 14px/150% "Segoe UI", Frutiger, "Frutiger Linotype",
+    "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-align: left;
+  /* width: 30%; */
+  margin: 0px auto;
+  color: #fff;
+  border-left: 3px solid yellow;
+  padding: 0px 20px;
+}
+
+/* for clock */
+
 @media only screen and (min-width: 768px) {
   .container h4 {
     font-size: 1.2em;
+  }
+
+  #timedate {
+    font: small-caps lighter 20px/150% "Segoe UI", Frutiger, "Frutiger Linotype",
+      "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align: left;
+    /* width: 30%; */
+    margin: 0px auto;
+    color: #fff;
+    border-left: 3px solid yellow;
+    padding: 0px 20px;
   }
 }
