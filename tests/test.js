@@ -5,6 +5,8 @@ const { expect } = require('chai')
 const db = require('../models')
 const User = db.User
 const app = require('../app')
+const request = require('supertest')
+
 
 describe('Array', function () {
   describe('#indexOf()', function () {
@@ -80,3 +82,15 @@ describe('# User Model', () => {
   })
 })
 
+// 
+describe('#Sign up', () => {
+  it('GET /users/register', (done) => {
+    request(app)
+      .get('/users/register')
+      .end(function (err, res) {
+        expect(res.statusCode).to.be.equal(200)
+        expect(res.text).to.contains('Register')
+        done()
+      })
+  })
+})

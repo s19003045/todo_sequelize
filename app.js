@@ -81,4 +81,4 @@ app.listen(port, () => {
   console.log(`Express server start`)
 })
 
-
+module.exports = app
