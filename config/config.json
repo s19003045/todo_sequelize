@@ -8,11 +8,11 @@
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "password",
+    "database": "todo_sequelize_tmp_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "logging": false
   },
   "production": {
     "username": "root",
