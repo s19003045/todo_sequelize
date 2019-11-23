@@ -106,3 +106,48 @@ describe('#Sign up', () => {
   })
 
 })
+
+
+// 測試 POST /users/register
+describe('#Sign up', () => {
+  before(async function () {
+    // 在所有測試開始前會執行的程式碼區塊
+    await User.destroy({ where: {}, truncate: true })
+  });
+
+  after(async function () {
+    // 在所有測試結束後會執行的程式碼區塊
+    await User.destroy({ where: {}, truncate: true })
+  });
+
+
+  //先註冊後登入
+  it('(O) 先註冊，再登入成功', (done) => {
+    request(app)
+      .post('/users/register')
+      .send('name=name&email=email&password=password&password2=password')
+      .expect(200)
+      .end(function (err, res) {
+
+        User.findOne({
+          where: {
+            email: 'email'
+          }
+        })
+          .then((user) => {
+            expect(user.email).to.be.equal('email')
+
+            request(app)
+              .post('/users/login')
+              .send('email=email&password=password')
+              .expect(200)
+              .end(function (err, res) {
+                expect(res.statusCode).to.be.equal(302)
+                expect(res.text).to.be.equal('Found. Redirecting to /')
+                done()
+              })
+          })
+      })
+  })
+
+})
