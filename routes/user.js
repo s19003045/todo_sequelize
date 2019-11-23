@@ -33,7 +33,7 @@ router.get('/register', (req, res) => {
 // 註冊檢查
 router.post('/register', (req, res) => {
 
-  console.log(req.body)
+  // console.log(req.body)
   const { name, email, password, password2 } = req.body
   // 回傳的錯誤訊息儲存至 errors
   let errors = []
@@ -56,7 +56,7 @@ router.post('/register', (req, res) => {
   } else {
     User.findOne({ where: { email: email } }).then(user => {
       if (user) {
-        console.log('User already exists')
+
         errors.push({ message: '已有人註冊此 email' })
         res.render('register', {
           errors,
